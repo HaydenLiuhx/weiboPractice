@@ -12,6 +12,7 @@
 		4A3A09BB2385023300922C17 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A09BA2385023300922C17 /* DiscoverTableViewController.swift */; };
 		4A3A09BD2385024700922C17 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A09BC2385024700922C17 /* MessageTableViewController.swift */; };
 		4A3A09BF2385025300922C17 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A09BE2385025300922C17 /* ProfileTableViewController.swift */; };
+		4A400A842385FE820070F54B /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A400A832385FE820070F54B /* UIButton+Extension.swift */; };
 		4A54416C2384CCE700300151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54416B2384CCE700300151 /* AppDelegate.swift */; };
 		4A54416E2384CCE700300151 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54416D2384CCE700300151 /* SceneDelegate.swift */; };
 		4A5441732384CCE700300151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5441712384CCE700300151 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		4A3A09BA2385023300922C17 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		4A3A09BC2385024700922C17 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		4A3A09BE2385025300922C17 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		4A400A832385FE820070F54B /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		4A5441682384CCE700300151 /* WeiboPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiboPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A54416B2384CCE700300151 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A54416D2384CCE700300151 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		4A3A09AE238500D500922C17 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				4A400A822385FE300070F54B /* Extension */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -127,6 +130,14 @@
 				4A3A09B6238501A000922C17 /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4A400A822385FE300070F54B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4A400A832385FE820070F54B /* UIButton+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		4A54415F2384CCE700300151 = {
@@ -235,6 +246,7 @@
 				4A3A09B7238501A000922C17 /* MainViewController.swift in Sources */,
 				4A54416C2384CCE700300151 /* AppDelegate.swift in Sources */,
 				4A3A09BB2385023300922C17 /* DiscoverTableViewController.swift in Sources */,
+				4A400A842385FE820070F54B /* UIButton+Extension.swift in Sources */,
 				4A3A09BD2385024700922C17 /* MessageTableViewController.swift in Sources */,
 				4A54416E2384CCE700300151 /* SceneDelegate.swift in Sources */,
 			);
