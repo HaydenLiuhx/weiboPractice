@@ -18,6 +18,7 @@
 		4A5441732384CCE700300151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5441712384CCE700300151 /* Main.storyboard */; };
 		4A5441752384CCE900300151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5441742384CCE900300151 /* Assets.xcassets */; };
 		4A5441782384CCE900300151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5441762384CCE900300151 /* LaunchScreen.storyboard */; };
+		4A57075B23863EF700ACA2D3 /* VisitorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57075A23863EF700ACA2D3 /* VisitorTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		4A5441742384CCE900300151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A5441772384CCE900300151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A5441792384CCE900300151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A57075A23863EF700ACA2D3 /* VisitorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		4A3A09B5238500D500922C17 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4A57075923863EE200ACA2D3 /* Visitor */,
 				4A3A09B6238501A000922C17 /* MainViewController.swift */,
 			);
 			path = Main;
@@ -168,6 +171,14 @@
 				4A5441792384CCE900300151 /* Info.plist */,
 			);
 			path = WeiboPractice;
+			sourceTree = "<group>";
+		};
+		4A57075923863EE200ACA2D3 /* Visitor */ = {
+			isa = PBXGroup;
+			children = (
+				4A57075A23863EF700ACA2D3 /* VisitorTableViewController.swift */,
+			);
+			path = Visitor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +258,7 @@
 				4A54416C2384CCE700300151 /* AppDelegate.swift in Sources */,
 				4A3A09BB2385023300922C17 /* DiscoverTableViewController.swift in Sources */,
 				4A400A842385FE820070F54B /* UIButton+Extension.swift in Sources */,
+				4A57075B23863EF700ACA2D3 /* VisitorTableViewController.swift in Sources */,
 				4A3A09BD2385024700922C17 /* MessageTableViewController.swift in Sources */,
 				4A54416E2384CCE700300151 /* SceneDelegate.swift in Sources */,
 			);
