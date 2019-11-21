@@ -22,11 +22,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7gJ-qk-DgU" secondAttribute="trailing" id="03S-Pk-aRV"/>
-                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5xK-UW-ZjO"/>
-                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CVW-9H-K9t"/>
-                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LSv-6x-qeo"/>
+                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Khm-CS-WBp"/>
+                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RRw-Gg-lqU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7gJ-qk-DgU" secondAttribute="bottom" id="TOi-h5-0vG"/>
-                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VBj-kt-8dg"/>
+                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="p1r-Qm-CD5"/>
+                            <constraint firstItem="7gJ-qk-DgU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="s9W-KN-JG5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

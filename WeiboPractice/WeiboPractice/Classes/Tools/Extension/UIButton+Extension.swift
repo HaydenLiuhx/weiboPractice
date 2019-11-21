@@ -20,4 +20,14 @@ extension UIButton{
         //根据背景大小调整尺寸
         sizeToFit()
     }
+    
+    convenience init(title: String,fontSize: Int, color: UIColor, imageName: String) {
+        self.init()
+        
+        setTitle(title, for: UIControl.State.normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(fontSize))
+        setTitleColor(color, for: UIControl.State.normal)
+        setBackgroundImage(UIImage(named: imageName), for: UIControl.State.normal)
+        
+    }
 }

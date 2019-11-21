@@ -19,6 +19,9 @@
 		4A5441752384CCE900300151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A5441742384CCE900300151 /* Assets.xcassets */; };
 		4A5441782384CCE900300151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5441762384CCE900300151 /* LaunchScreen.storyboard */; };
 		4A57075B23863EF700ACA2D3 /* VisitorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57075A23863EF700ACA2D3 /* VisitorTableViewController.swift */; };
+		4A57075D2386414600ACA2D3 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A57075C2386414600ACA2D3 /* VisitorView.swift */; };
+		4AFEBD262386A7E800D8D8F8 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFEBD252386A7E800D8D8F8 /* UILabel+Extension.swift */; };
+		4AFEBD282386AB4C00D8D8F8 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFEBD272386AB4C00D8D8F8 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		4A5441772384CCE900300151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A5441792384CCE900300151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A57075A23863EF700ACA2D3 /* VisitorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorTableViewController.swift; sourceTree = "<group>"; };
+		4A57075C2386414600ACA2D3 /* VisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		4AFEBD252386A7E800D8D8F8 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		4AFEBD272386AB4C00D8D8F8 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				4A400A832385FE820070F54B /* UIButton+Extension.swift */,
+				4AFEBD252386A7E800D8D8F8 /* UILabel+Extension.swift */,
+				4AFEBD272386AB4C00D8D8F8 /* UIImageView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -177,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4A57075A23863EF700ACA2D3 /* VisitorTableViewController.swift */,
+				4A57075C2386414600ACA2D3 /* VisitorView.swift */,
 			);
 			path = Visitor;
 			sourceTree = "<group>";
@@ -255,10 +264,13 @@
 				4A3A09BF2385025300922C17 /* ProfileTableViewController.swift in Sources */,
 				4A3A09B92385021000922C17 /* HomeTableViewController.swift in Sources */,
 				4A3A09B7238501A000922C17 /* MainViewController.swift in Sources */,
+				4AFEBD282386AB4C00D8D8F8 /* UIImageView+Extension.swift in Sources */,
 				4A54416C2384CCE700300151 /* AppDelegate.swift in Sources */,
+				4AFEBD262386A7E800D8D8F8 /* UILabel+Extension.swift in Sources */,
 				4A3A09BB2385023300922C17 /* DiscoverTableViewController.swift in Sources */,
 				4A400A842385FE820070F54B /* UIButton+Extension.swift in Sources */,
 				4A57075B23863EF700ACA2D3 /* VisitorTableViewController.swift in Sources */,
+				4A57075D2386414600ACA2D3 /* VisitorView.swift in Sources */,
 				4A3A09BD2385024700922C17 /* MessageTableViewController.swift in Sources */,
 				4A54416E2384CCE700300151 /* SceneDelegate.swift in Sources */,
 			);
