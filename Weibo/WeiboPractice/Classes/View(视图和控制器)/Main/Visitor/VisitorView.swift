@@ -107,33 +107,59 @@ extension VisitorView {
          i子视图要有一个统一的参照物
          */
         //支持使用setFrame的方式来设置控件位置
-        for v in subviews{
-            v.translatesAutoresizingMaskIntoConstraints = false
-        }
+//        for v in subviews{
+//            v.translatesAutoresizingMaskIntoConstraints = false
+//        }
         //iconView.translatesAutoresizingMaskIntoConstraints = false
         
         //1.图标
-        addConstraint(NSLayoutConstraint(item: iconView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: iconView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: -60))//参照值
-        //2.house
-        addConstraint(NSLayoutConstraint(item: homeView, attribute: .centerX, relatedBy: .equal, toItem: iconView, attribute: .centerX, multiplier: 1.0, constant: 0))
-        addConstraint(NSLayoutConstraint(item: homeView, attribute: .centerY, relatedBy: .equal, toItem: iconView, attribute: .centerY, multiplier: 1.0, constant: -7))
-        //3.消息文字
-        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .centerX, relatedBy: .equal, toItem: iconView, attribute: .centerX, multiplier: 1.0, constant: 0))
-        //        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: iconView, attribute: .bottom, multiplier: 1.0, constant: 16))
-        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .centerY, relatedBy: .equal, toItem: iconView, attribute: .centerY, multiplier: 1.0, constant: 85))
-        //addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
-        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30))
-        //4.button
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .left, relatedBy: .equal, toItem: homeView, attribute: .left, multiplier: 1.0, constant: -30))
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .top, relatedBy: .equal, toItem: messageLabel, attribute: .top, multiplier: 1.0, constant: 36))
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
-        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 28))
-        //4.button login
-        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .right, relatedBy: .equal, toItem: homeView, attribute: .right, multiplier: 1.0, constant: 30))
-        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .top, relatedBy: .equal, toItem: messageLabel, attribute: .top, multiplier: 1.0, constant: 36))
-        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
-        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 28))
+//        addConstraint(NSLayoutConstraint(item: iconView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0))
+//        addConstraint(NSLayoutConstraint(item: iconView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: -60))//参照值
+        iconView.snp.makeConstraints{(make) -> Void in
+            //指定 centerX 属性等于·参照对象·,'snp'参照属性值
+            //offset就是指定相对视图约束的偏移量
+            make.centerX.equalTo(self.snp.centerX)
+            make.centerY.equalTo(self.snp.centerY).offset(-60)
+        }
+//        //2.house
+//        addConstraint(NSLayoutConstraint(item: homeView, attribute: .centerX, relatedBy: .equal, toItem: iconView, attribute: .centerX, multiplier: 1.0, constant: 0))
+//        addConstraint(NSLayoutConstraint(item: homeView, attribute: .centerY, relatedBy: .equal, toItem: iconView, attribute: .centerY, multiplier: 1.0, constant: -7))
+        homeView.snp.makeConstraints{(make) -> Void in
+            make.center.equalTo(iconView.snp.center)}
+//        //3.消息文字
+//        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .centerX, relatedBy: .equal, toItem: iconView, attribute: .centerX, multiplier: 1.0, constant: 0))
+//        //        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .top, relatedBy: .equal, toItem: iconView, attribute: .bottom, multiplier: 1.0, constant: 16))
+//        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .centerY, relatedBy: .equal, toItem: iconView, attribute: .centerY, multiplier: 1.0, constant: 85))
+//        //addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75))
+//        addConstraint(NSLayoutConstraint(item: messageLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30))
+        messageLabel.snp.makeConstraints{(make) -> Void in
+            make.centerX.equalTo(iconView.snp.centerX)
+            make.top.equalTo(iconView.snp.bottom).offset(12)
+            make.height.equalTo(224)
+            make.height.equalTo(36)
+        }
+//        //4.button
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .left, relatedBy: .equal, toItem: homeView, attribute: .left, multiplier: 1.0, constant: -30))
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .top, relatedBy: .equal, toItem: messageLabel, attribute: .top, multiplier: 1.0, constant: 36))
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+//        addConstraint(NSLayoutConstraint(item: registerButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 28))
+        registerButton.snp.makeConstraints{(make) -> Void in
+            make.left.equalTo(messageLabel.snp.left).offset(-60)
+            make.top.equalTo(messageLabel.snp.bottom).offset(16)
+            make.width.equalTo(80)
+            make.height.equalTo(36)
+        }
+//        //4.button login
+//        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .right, relatedBy: .equal, toItem: homeView, attribute: .right, multiplier: 1.0, constant: 30))
+//        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .top, relatedBy: .equal, toItem: messageLabel, attribute: .top, multiplier: 1.0, constant: 36))
+//        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 60))
+//        addConstraint(NSLayoutConstraint(item: loginButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 28))
+        loginButton.snp.makeConstraints{(make) -> Void in
+            make.right.equalTo(messageLabel.snp.right).offset(60)
+            make.top.equalTo(registerButton.snp.top)
+            make.width.equalTo(registerButton.snp.width)
+            make.height.equalTo(registerButton.snp.height)
+        }
         //5.mask
         /**
          VFL可视化格式语言
@@ -143,9 +169,15 @@ extension VisitorView {
          【】：包装控件
          matrics:是一个字典,字符串中某一个数值
          */
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[mask]-0-|", options: [], metrics: nil, views: ["mask":maskIconView]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[mask]-(btnHeight)-[regButton]", options: [], metrics: ["btnHeight": -130], views: ["mask":maskIconView,"regButton":registerButton]))
+//        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[mask]-0-|", options: [], metrics: nil, views: ["mask":maskIconView]))
+//        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[mask]-(btnHeight)-[regButton]", options: [], metrics: ["btnHeight": -130], views: ["mask":maskIconView,"regButton":registerButton]))
         backgroundColor = UIColor(white: 237.0 / 255.0, alpha: 1.0)
+        maskIconView.snp.makeConstraints{(make) -> Void in
+            make.top.equalTo(self.snp.top)
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.bottom.equalTo(registerButton.snp.bottom)
+        }
         //3.添加监听方法
         
     }

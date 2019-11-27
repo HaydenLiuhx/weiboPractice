@@ -1,6 +1,7 @@
 import UIKit
 import Foundation
 import Alamofire
+import SwiftyJSON
  
  
 typealias ReqRsponseSuccess = (_ response: AnyObject) -> Void
@@ -26,6 +27,8 @@ enum methodType {
  
 class HttpNetWork: NSObject{
     
+    //我也不知道干些什么
+    typealias HttpCallBack = (_ result: AnyObject?, _ error: NSError?) -> ()
     //MARK: -应用程序信息
     
 //   private let APP_ID = "wxa42e11f2c1bc528b";
@@ -43,6 +46,7 @@ class HttpNetWork: NSObject{
     
     public func getRequestWith(url: String,
                           params:[String: Any]?,
+                          header: HTTPHeaders,
                           success:@escaping ReqRsponseSuccess,
                           error:@escaping ReqResponseFail){
 //        1、JSONEncoding.default 是放在HttpBody内的，   比如post请求
@@ -66,6 +70,7 @@ class HttpNetWork: NSObject{
     
     public func postRequestWith(url: String,
                                params:[String: Any]?,
+                               
                                success:@escaping ReqRsponseSuccess,
                                error:@escaping ReqResponseFail){
         
@@ -90,6 +95,7 @@ class HttpNetWork: NSObject{
     public func requestWith(url:String,
                               httpMethod: Int32,
                               params:[String: Any]?,
+                              headers: HTTPHeaders,
                               success:@escaping ReqRsponseSuccess,
                               error:@escaping ReqResponseFail){
         
@@ -107,7 +113,7 @@ class HttpNetWork: NSObject{
  
         switch httpMethod {
         case 0:
-         getRequestWith(url: httpUrl, params: updict, success: success, error: error)
+            getRequestWith(url: httpUrl, params: updict, header: headers, success: success, error: error)
             
         case 1:
          postRequestWith(url: httpUrl, params: updict, success: success, error: error)
@@ -170,12 +176,25 @@ extension  HttpNetWork{
     }
 }
 
-//let dictionary = ["email":"lhx" ,
-//                         "password":"123"]
-//       HttpNetWork.singleton.requestWith(url: "https://www.wekol.com.au:8003/client/login", httpMethod: 1, params: dictionary, success: {(response) in
-//           let jsonDic = JSON(response)
-//           print("Result: \(jsonDic)")
-//       }, error: {(response) in
-//           let err = JSON(response)
-//           print(err)
-//       })
+//MARK: 加载数据相关方法
+extension HttpNetWork{
+    
+    ///加载数据
+    func loadData(finished: @escaping HttpCallBack) {
+        let dictionary = ["email":"lhx" ,
+                          "password":"123"]
+        HttpNetWork.singleton.requestWith(url: "https://www.wekol.com.au:8003/client/login", httpMethod: 1, params: dictionary, headers: ["":""], success: {(response) in
+            let jsonDic = JSON(response)
+            
+            finished(jsonDic as AnyObject,nil)
+        }, error: {(response) in
+            let err = JSON(response)
+            print(err)
+            finished(nil, NSError(domain: "cn.itcast.error", code: -1001, userInfo: ["message":"token为空"]))
+            return
+        })
+        
+    }
+}
+
+

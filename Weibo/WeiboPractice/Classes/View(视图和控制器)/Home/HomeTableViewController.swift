@@ -7,81 +7,101 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
 
+
+private let OrderCellNormalId = "OrderCellNormalId"
 class HomeTableViewController: VisitorTableViewController {
-
+    //微博数据列表模型
+    private lazy var listViewModel = OrderListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         visitorView?.setupInfo(imageName: nil, title: "Home Page")
-
+        prepareTableView()
+        loadData(1)
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    //测试
+    private func loadData(_ id: Int) {
+        listViewModel.loadD(id: id,  finished: { (isSuccessed) -> () in
+            if !isSuccessed {
+                SVProgressHUD.showInfo(withStatus: "Error")
+                return
+            }
+            //print(self.listViewModel.orderList)
+            self.tableView.reloadData()
+       })
+        
+        
     }
-
+    //准备表格
+    private func prepareTableView() {
+        //注册可重用cell
+        tableView.register(OrderCell.self, forCellReuseIdentifier: OrderCellNormalId)
+        //临时行高
+        //
+        tableView.rowHeight = 300
+    }
+//    private func dataLogin(_ userId: String, _ userPassword: String, _ id: Int)  {
+//        // let dataList: [String: Any]
+//
+//        let parameters = ["email":userId ,"password":userPassword]
+//        let url = URL(string: "https://www.wekol.com.au:8003/client/login/")!
+//        //var dataList = [OrderModel]()
+//        Alamofire.request(url, method:  .post, parameters: parameters, encoding: URLEncoding(destination: .queryString), headers: nil)
+//            .validate()
+//            .responseJSON { response in
+//                if let v = response.result.value {
+//                    let header: HTTPHeaders = ["token":JSON(v)["token"].stringValue]
+//                    Alamofire.request("https://www.wekol.com.au:8003/order/getOpeningOrdersByUser",
+//                                      method: .get,
+//                                      parameters:["userId": 1],
+//                                      encoding: URLEncoding.default,
+//                                      //encoding: URLEncoding.default,
+//                        headers: header
+//                    )
+//                        .responseJSON { (response) in
+//                            if let json = response.result.value {
+//                                //print(JSON(json))
+//                                let array = JSON(json)["accepted_orders"]
+//                                var datalist = [OrderModel]()
+//                                for index in 0...(array.count-1) {
+//                                    let model = OrderModel.init(jsonData: array[index])
+//                                    //print(model)
+//                                    datalist.append(model)
+//                                }
+//                                //                                print(dataList)
+//                                //                                print(type(of: dataList))
+//                                self.dataList = datalist
+//                                self.tableView.reloadData()
+//                            }
+//
+//                    }
+//                }
+//
+//
+//        }
+//
+//
+//
+//    }
+//
+    
+    
+}
+//实现数据源方法
+extension HomeTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return listViewModel.orderList.count
     }
-
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: OrderCellNormalId, for: indexPath) as! OrderCell
+        //cell.textLabel?.text = dataList![indexPath.row].notes
+       // cell.textLabel?.text = listViewModel.orderList[indexPath.row].orderModel.notes
+        cell.viewModle = listViewModel.orderList[indexPath.row]
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class VisitorTableViewController: UITableViewController {
 
-    private var userLogon = false
+    private var userLogon = true
     
     var visitorView: VisitorView?
     //lazy var visitorView: VisitorView? = VisitorView()
