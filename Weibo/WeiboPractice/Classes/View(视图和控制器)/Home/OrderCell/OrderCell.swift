@@ -39,8 +39,12 @@ class OrderCell: UITableViewCell {
 extension OrderCell{
     private func setupUI() {
         //1.添加控件
+        let sepView = UIView()
+        sepView.backgroundColor = UIColor.lightGray
+        addSubview(sepView)
         contentView.addSubview(topView)
         contentView.addSubview(contentLabel)
+        contentView.addSubview(bottomView)
         //contentLabel.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 2*OrderCellMargin
         //2.自动布局
         topView.snp.makeConstraints { (make) -> Void in
@@ -50,15 +54,23 @@ extension OrderCell{
             //TODO: 修改高度
             //make.bottom.equalTo(contentView.snp_bottomMargin)
             
-            make.height.equalTo(60)
+            make.height.equalTo(70)
             
         }
         contentLabel.snp.makeConstraints{ (make) -> Void in
             make.top.equalTo(topView.snp.bottom).offset(OrderCellMargin)
             make.left.equalTo(contentView.snp.left).offset(OrderCellMargin)
             
+         
+        }
+        bottomView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(contentLabel.snp.bottom).offset(OrderCellMargin)
+            make.left.equalTo(contentView.snp.left)
+            make.right.equalTo(contentView.snp.right)
+            make.height.equalTo(44)
+            
             //指定向下的约束,指定行高必须要自上而下
-            make.bottom.equalTo(contentView.snp.bottom).offset(-OrderCellMargin)
+            make.bottom.equalTo(contentView.snp.bottom)
         }
     }
 }

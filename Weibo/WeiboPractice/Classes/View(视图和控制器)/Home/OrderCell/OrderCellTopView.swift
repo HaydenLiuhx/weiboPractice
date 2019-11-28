@@ -51,8 +51,11 @@ class OrderCellTopView: UIView {
 
 extension OrderCellTopView {
     private func setupUI(){
-        backgroundColor = UIColor(white: 0.95, alpha: 1.0)
-        
+        //backgroundColor = UIColor(white: 0.95, alpha: 1.0)
+        backgroundColor = UIColor.white
+        let sepView = UIView()
+        sepView.backgroundColor = UIColor.lightGray
+        addSubview(sepView)
         //1.添加控件
         addSubview(iconView)
         addSubview(nameLabel)
@@ -61,8 +64,14 @@ extension OrderCellTopView {
         addSubview(timeLabel)
         addSubview(sourceLabel)
         //2.自动布局
+        sepView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.snp.top)
+            make.left.equalTo(self.snp.left)
+            make.right.equalTo(self.snp.right)
+            make.height.equalTo(OrderCellMargin)
+               }
         iconView.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp.top).offset(OrderCellMargin)
+            make.top.equalTo(sepView.snp.bottom).offset(OrderCellMargin)
             make.left.equalTo(self.snp_leftMargin).offset(OrderCellMargin)
             make.width.equalTo(OrderCellIconView)
             make.height.equalTo(OrderCellIconView)
