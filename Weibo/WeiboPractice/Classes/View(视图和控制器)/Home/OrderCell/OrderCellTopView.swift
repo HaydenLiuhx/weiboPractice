@@ -21,7 +21,7 @@ class OrderCellTopView: UIView {
                 iconView.sd_setImage(with: URL(string: "https://wekol.com.au/static/upload/"+viewModle!.userProfileUrl), placeholderImage: viewModle?.userDefaultIconView)
                 //memberIconView.image = viewModle?.
                 //vipIconView
-                timeLabel.text = "刚刚"
+                timeLabel.text = viewModle?.time
                 sourceLabel.text = "来自 微博"
             }
         }

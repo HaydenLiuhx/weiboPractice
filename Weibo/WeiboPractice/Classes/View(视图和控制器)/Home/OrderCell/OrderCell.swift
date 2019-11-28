@@ -56,6 +56,9 @@ extension OrderCell{
         contentLabel.snp.makeConstraints{ (make) -> Void in
             make.top.equalTo(topView.snp.bottom).offset(OrderCellMargin)
             make.left.equalTo(contentView.snp.left).offset(OrderCellMargin)
+            
+            //指定向下的约束,指定行高必须要自上而下
+            make.bottom.equalTo(contentView.snp.bottom).offset(-OrderCellMargin)
         }
     }
 }

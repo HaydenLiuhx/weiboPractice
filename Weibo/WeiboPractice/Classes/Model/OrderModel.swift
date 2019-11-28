@@ -31,7 +31,7 @@ struct OrderModel {
             photos = jsonData["photos"].stringValue
         //photos = (String(jsonData["photos"].stringValue)).split(separator: ";")
            status = jsonData["status"].stringValue
-           date   = jsonData["date"].stringValue
+           date   = jsonData["createAt"].stringValue
           
        }
     

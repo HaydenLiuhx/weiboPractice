@@ -23,6 +23,10 @@ class OrderViewModel {
     var userDefaultIconView: UIImage {
         return UIImage(named: "avatar_default_big")!
     }
+    var time: String {
+        
+        return orderModel.date!
+    }
 //    var memberImage: UIImage? {
 //        return UIImage
 //    }

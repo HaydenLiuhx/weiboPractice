@@ -42,8 +42,9 @@ class HomeTableViewController: VisitorTableViewController {
         //注册可重用cell
         tableView.register(OrderCell.self, forCellReuseIdentifier: OrderCellNormalId)
         //临时行高
-        //
-        tableView.rowHeight = 300
+        //自动计算杭高，需要一个自上而下的
+        tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableView.automaticDimension
     }
 //    private func dataLogin(_ userId: String, _ userPassword: String, _ id: Int)  {
 //        // let dataList: [String: Any]
